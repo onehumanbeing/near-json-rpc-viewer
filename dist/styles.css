@@ -1,0 +1,288 @@
+html {
+  height: 100%;
+}
+
+button {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: monospace !important;
+  font-size: 11px;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+#tableWrapper {
+  width: 100%;
+}
+
+
+#table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 0;
+  margin: 0;
+  margin-right: -1px;
+}
+
+#table td {
+  padding: 3px;
+  border: 0;
+}
+
+#table td.methodName {
+  padding-left: 10px !important;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  /* background-image: url('./list-items/none.svg'); */
+}
+
+#topmenu {
+  height: 25px;
+  min-height: 25px;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #999;
+  background: #CCC;
+  align-items: center;
+  padding: 3px;
+}
+
+#topmenu a {
+  color: inherit !important;
+
+}
+
+button:hover {
+  color: goldenrod;
+  text-decoration-style: solid;
+}
+
+button:active {
+  text-decoration: none;
+}
+
+button#clear {
+  justify-self: flex-start;
+}
+
+button#help {
+  justify-self: flex-end;
+}
+
+#panels {
+  flex-grow: 1;
+  display: flex;
+}
+
+#left {
+  width: 50%;
+  min-width: 5%;
+  overflow: auto;
+}
+
+#right {
+  border-left: 1px solid #999;
+  min-width: 5%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#params {
+  min-height: 25px;
+  max-height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#resultError {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#resultError_json_viewer,
+#params_json_viewer {
+  overflow: auto;
+  flex-grow: 1;
+  padding: 3px;
+}
+
+#left_resizer {
+  width: 5px;
+  cursor: col-resize;
+}
+
+#left_resizer:hover {
+  background-color: #c7c7c7;
+}
+
+#params_resizer {
+  height: 5px;
+  cursor: row-resize;
+}
+#params_resizer:hover {
+  background-color: #c7c7c7;
+}
+
+tr {
+  cursor: pointer;
+}
+
+.even {
+  background: #EEE;
+}
+
+.odd {
+  background: #FFF;
+}
+
+.selected {
+  background: lightblue !important;
+}
+
+.header {
+  height: 25px;
+  min-height: 25px;
+  background: #CCC;
+  color: #000;
+  padding: 3px;
+  user-select: none;
+}
+
+tr.header {
+  vertical-align: middle;
+}
+div.header {
+  display: flex;
+  align-items: center;
+}
+
+.ok {
+  color: green;
+}
+
+.error {
+  color: orangered;
+}
+
+.reponseNotParsed {
+  color: purple;
+}
+
+
+#helpPopup {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+}
+
+#helpPopupContent {
+  background: #FFF;
+  padding: 10px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+
+.methodName.inBatch_mid {
+  background-image: url('./list-items/mid.svg') !important;
+}
+.methodName.inBatch_end {
+  background-image: url('./list-items/end.svg') !important;
+}
+.methodName.inBatch_start {
+  background-image: url('./list-items/start.svg') !important;
+}
+
+.theme-dark .json-formatter-row .json-formatter-key {
+  color: #999999;
+}
+
+.theme-dark .json-formatter-row,
+.theme-dark .json-formatter-row a,
+.theme-dark .json-formatter-row a:hover,
+.theme-dark .json-formatter-row .json-formatter-bracket {
+  color: #c3c3ff;
+}
+
+.theme-dark .json-formatter-row .json-formatter-number {
+  color: #8181ff;
+}
+
+.theme-dark .json-formatter-row .json-formatter-string, .theme-dark .json-formatter-row .json-formatter-stringifiable {
+  color: #00d200;
+}
+
+.theme-dark .error {
+  color: #ff4500;
+}
+
+.theme-dark .even {
+  background: #2b2b2b;
+}
+
+.theme-dark .odd {
+  background: transparent;
+}
+
+.theme-dark .selected {
+  background: #424242 !important;
+}
+
+.theme-dark .header, .theme-dark #topmenu {
+  background-color: #212121;
+  color: white;
+}
+
+.theme-dark .ok {
+  color: lightgreen;
+}
+
+.theme-dark #helpPopupContent {
+  background-color: #2f2f2f;
+}
+
+.theme-dark #helpPopupContent a {
+  color: #00a0ff;
+}
+
+.theme-dark #left_resizer:hover, .theme-dark #params_resizer:hover {
+  background-color: #999;
+}
+
+.theme-dark {
+  color: white;
+}
