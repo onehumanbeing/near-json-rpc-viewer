@@ -2,6 +2,11 @@
 Updated to parse Near rpc requests
 base on JSON-RPC Viewer
 
+snapshot: 
+
+![snapshot](docs/snapshot.png)
+
+
 # JSON-RPC Viewer
 JSON-RPC Viewer is an extension to help viewing JSON-RPC requests in a more convenient way than Network tab allows.
 You can view a list of requests with method name, params and result/response.
