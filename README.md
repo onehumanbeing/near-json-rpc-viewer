@@ -2,9 +2,17 @@
 Updated to parse Near rpc requests
 base on JSON-RPC Viewer
 
+features update:
+regex search bar    03/28/2022
+
 snapshot: 
 
 ![snapshot](docs/snapshot.png)
+
+## How to use 
+1. Open `chrome://extensions`
+
+2. import `./dist` as a extension 
 
 
 # JSON-RPC Viewer

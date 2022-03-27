@@ -113,6 +113,8 @@ const paramsResizer = document.getElementById('params_resizer')
 const resetLayoutBtn = document.getElementById('reset_layout')
 const opts = {animateOpen: false, animateClose: false}
 const currentTheme = chrome.devtools.panels.themeName
+const requestFilterInput = document.getElementById('request_filter')
+const requestFilterCleanBtn = document.getElementById('request_filter_clean')
 
 let trClass = 1;
 
@@ -185,6 +187,8 @@ function addListItem(request, requestJSON, responseJSON, inBatch, batchSize) {
     // console.log("requestJson", requestJSON, responseJSON)
     const tr = document.createElement('tr')
     tr.classList.add(trClass > 0 ? 'even' : 'odd')
+    // add name and condition to add filter
+    if(requestJSON && requestJSON.hasOwnProperty())
     trClass *= -1
 
     const td1 = document.createElement('td')
@@ -247,12 +251,18 @@ function addListItem(request, requestJSON, responseJSON, inBatch, batchSize) {
             }
             td1.innerHTML = "near view " + requestJSON.params.account_id + " " + requestJSON.params.method_name + " " + params_str
         } else {
-            td1.innerHTML = "[query] " + requestJSON.params.request_type
+            if(requestJSON.params.request_type == "view_account") {
+                td1.innerHTML = "near state " + requestJSON.params.account_id
+            } else {
+                td1.innerHTML = "[query] " + requestJSON.params.request_type
+            }
         }
     }
     else {
         td1.innerHTML = requestJSON.method
     }
+    tr.setAttribute("index", td1.innerHTML);
+    tr.setAttribute("name", "near_request");
     td1.classList.add('methodName')
     if (inBatch) {
         td1.classList.add('inBatch_' + inBatch)
@@ -333,6 +343,34 @@ resetLayoutBtn.addEventListener('click', function () {
     loadLayout()
 })
 
+requestFilterCleanBtn.addEventListener('click', function () {
+    requestFilterInput.value = '';
+    requestFilterUpdate()
+})
+
+requestFilterInput.addEventListener('input', function () {
+    requestFilterUpdate()
+})
+
+
+function requestFilterUpdate() {
+    var keyword = requestFilterInput.value;
+    console.log('keyword', keyword)
+    const collection = document.getElementsByName("near_request");
+    for (let i = 0; i < collection.length; i++) {
+        if(keyword == '') {
+            collection[i].style.display = 'table-row'
+            continue
+        }
+        var index = collection[i].getAttribute('index')
+        console.log(index)
+        if(index.search(keyword) == -1) {
+            collection[i].style.display = 'none'
+        } else {
+            collection[i].style.display = 'table-row'
+        }
+    }
+}
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2).Buffer, __webpack_require__(6).setImmediate))
 
 /***/ }),
